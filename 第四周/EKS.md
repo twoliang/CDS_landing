@@ -12,5 +12,5 @@
 
 [地址]([EKS架构图 - Xmind 在线思维导图](https://ai.xmind.cn/3jm1nHkk))
 
-![EKS架构图-EKS (1)](./EKS架构图-EKS .jpeg)
+![EKS架构图-EKS (1)](./EKS架构图-EKS .png)
 
