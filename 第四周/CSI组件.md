@@ -2,7 +2,7 @@
 
 ![image-20250306182428491](./csi设计流程.png)
 
-### 流程图说明
+### 流程
 
 1. **用户请求**：用户通过 Kubernetes API 提交创建 PVC、附加存储卷、创建快照或调整大小等请求。
 2. **请求分类**：根据请求类型，将请求转发给相应的外部组件（External Provisioner、External Attacher、External Snapshotter 或 External Resizer）。
@@ -15,14 +15,12 @@
 
 #### 1. 主要组件
 
-- 
-
-  CSI Driver
-
-  ：这是存储供应商提供的插件，实现了 CSI 规范定义的接口。它负责与具体的存储系统进行交互，完成存储卷的创建、删除、挂载、卸载等操作。CSI Driver 通常包含三个主要的服务：
+* **CSI Driver**：这是存储供应商提供的插件，实现了 CSI 规范定义的接口。它负责与具体的存储系统进行交互，完成存储卷的创建、删除、挂载、卸载等操作。CSI Driver 通常包含三个主要的服务：
 
   - **Controller Service**：处理存储卷的创建、删除、快照等集群级别的操作。
+
   - **Node Service**：处理存储卷在节点上的挂载、卸载等操作。
+
   - **Identity Service**：提供插件的基本信息，如名称、版本等。
 
 - **CSI Plugin Registry**：用于存储系统中注册和发现 CSI Driver 的组件。Kubernetes 中的 `csi-driver-registrar` 就是一个典型的插件注册器，它会在节点上运行的 CSI Driver 启动时，将其信息注册到 Kubernetes API Server 中。
